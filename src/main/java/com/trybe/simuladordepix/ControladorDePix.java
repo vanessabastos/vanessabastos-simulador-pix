@@ -2,6 +2,7 @@ package com.trybe.simuladordepix;
 
 import java.io.IOException;
 
+/**Classe Controlador de Pix.*/
 public class ControladorDePix {
 
   private final ProcessadorDePix processadorDePix;
@@ -21,6 +22,14 @@ public class ControladorDePix {
    *         o resultado da operação.
    */
   public String aoConfirmarPix(int valor, String chave) {
-    return null; // TODO: Implementar.
+    try {
+      processadorDePix.executarPix(valor, chave);
+      return Mensagens.SUCESSO;
+
+    } catch (ErroDePix e) {
+      return e.getMessage();
+    } catch (IOException e) {
+      return Mensagens.ERRO_DE_CONEXAO;
+    }
   }
 }

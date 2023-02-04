@@ -25,7 +25,7 @@ public class ControladorDePixTest {
 
   @Test
   @DisplayName("Mensagem de sucesso deve ser exibida corretamente")
-  public void mensagemDeSucesso() {
+  public void mensagemDeSucesso() throws ErroDePix, IOException {
     String mensagem = controlador.aoConfirmarPix(2000, "abc123");
     assertEquals(Mensagens.SUCESSO, mensagem);
   }
